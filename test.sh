@@ -12,20 +12,29 @@ rbd pool init testpool
 
 rbd create testpool/testimage --size 100
 
-rbd device map testpool/testimage --id root
+rbd --image testpool/testimage info
 
-ls /dev/rbd/testpool
+rbd feature disable testpool/testimage object-map fast-diff deep-flatten
+
+rbd device map testpool/testimage --id admin
+
+ls /dev/rbd*
 
 rbd device list
 
-rbd info testpool/testimage
-
-mkfs.ext4 -m0 /dev/rbd/testpool/testimage
+mkfs.ext4 -m0 /dev/rbd0
 
 mkdir -p /mnt/testimage
 
-mount /dev/rbd/testpool/testimage /mnt/testimage
+mount /dev/rbd0 /mnt/testimage
+
+echo "testing a lot!" >> /mnt/testimage/test.txt
+echo "testing a lot!" >> /mnt/testimage/test.txt
+echo "testing a lot!" >> /mnt/testimage/test.txt
+
+umount /mnt/testimage
 
 rbd rm testpool/testimage
 
 echo "TEST SCRIPT END"
+

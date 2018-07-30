@@ -13,6 +13,7 @@ services:
       # - /mnt:/mnt
       - /dev:/dev
       - /sys:/sys
+      - /lib:/lib
 
   etcd0:
     image: quay.io/coreos/etcd
@@ -48,6 +49,14 @@ services:
       - ETCD_URL=http://etcd0:2379
 
   osd2:
+    image: flaviostutz/ceph-osd
+    environment:
+      - PEER_MONITOR_HOST=mon0
+      - OSD_EXT4_SUPPORT=true
+      - OSD_JOURNAL_SIZE=512
+      - ETCD_URL=http://etcd0:2379
+
+  osd3:
     image: flaviostutz/ceph-osd
     environment:
       - PEER_MONITOR_HOST=mon0

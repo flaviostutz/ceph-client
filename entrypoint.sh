@@ -3,5 +3,5 @@ set -e
 
 ./initialize.sh
 
-exec $@
+exec "$@"
 
