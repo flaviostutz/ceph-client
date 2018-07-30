@@ -1,7 +1,10 @@
 # ceph-client
 Ceph client docker container image with librados, ceph tools and script for keyring download from ETCD and from ENV
 
-## Usage
+## Usage (basic)
+Run this container passing a custom command
+
+## Usage (advanced)
 Extend this container with
 FROM flaviostutz/ceph-client
 
@@ -17,4 +20,3 @@ Set the following Environment variables:
 * CEPH\_CLUSTER\_NAME 'ceph'
 
 See a complete example at /example
-

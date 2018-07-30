@@ -11,8 +11,11 @@ ENV CEPH_AUTH 'cephx'
 ENV CEPH_USER 'admin'
 ENV CEPH_CLUSTER_NAME 'ceph'
 
+ADD entrypoint.sh /
 ADD initialize.sh /
 ADD startup.sh /
+ADD test.sh /
 ADD ceph.conf.template /
 
+ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/startup.sh" ]

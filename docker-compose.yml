@@ -7,6 +7,12 @@ services:
     environment:
       - CEPH_MONITOR_HOST=mon0
       - ETCD_URL=http://etcd0:2379
+    # command: /test.sh
+    privileged: true
+    volumes:
+      # - /mnt:/mnt
+      - /dev:/dev
+      - /sys:/sys
 
   etcd0:
     image: quay.io/coreos/etcd

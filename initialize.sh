@@ -55,5 +55,7 @@ echo "Creating ceph.conf..."
 cat /ceph.conf.template | envsubst > /etc/ceph/ceph.conf
 cat /etc/ceph/ceph.conf
 
-echo "Testing Ceph connection..."
-ceph -s
+# echo "Testing Ceph connection..."
+# ceph -s
+echo "Initialization done."
+echo ""
