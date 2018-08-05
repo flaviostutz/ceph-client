@@ -12,7 +12,7 @@ Call, from your startup script, ./initialize.sh, so that ceph.conf and keyring w
 
 Set the following Environment variables:
 
-* CEPH\_MONITOR\_HOST - monitor host
+* MONITOR\_HOSTS - list of monitor host:port separated by ','
 * CEPH\_KEYRING\_BASE64 - Keyring file in base64 OR
 * ETCD\_URL - URL of ETCD instance that has the keyring at /[ceph-cluster]/keyring
 * CEPH\_AUTH 'cephx'
@@ -21,4 +21,5 @@ Set the following Environment variables:
 * RBD\_CACHE\_ENABLED 'true' - enable cache of writes and reads
 * RBD\_CACHE\_MAX\_DIRTY '0' - amount of bytes to write assyncronously before flushing to Ceph Cluster; 0 means just cache write through (reads are cached, but writes don't)
 
-See a complete example at /example
+See a complete example at /docker-compose.yml
+

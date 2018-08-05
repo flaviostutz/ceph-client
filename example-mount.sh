@@ -1,12 +1,12 @@
 #!/bin/bash
-# set -e
+set -e
 set -x
 
 echo "TEST SCRIPT BEGIN"
 
 ceph -s
 
-ceph osd pool create testpool 40
+ceph osd pool create testpool 30
 
 rbd pool init testpool
 
@@ -16,23 +16,25 @@ rbd --image testpool/testimage info
 
 rbd feature disable testpool/testimage object-map fast-diff deep-flatten
 
-rbd device map testpool/testimage --id admin
+MAP_DEV=$(rbd device map testpool/testimage --id admin)
 
-ls /dev/rbd*
+ls $MAP_DEV
 
 rbd device list
 
-mkfs.ext4 -m0 /dev/rbd0
+mkfs.ext4 -m0 $MAP_DEV
 
 mkdir -p /mnt/testimage
 
-mount /dev/rbd0 /mnt/testimage
+mount $MAP_DEV /mnt/testimage
 
 echo "testing a lot!" >> /mnt/testimage/test.txt
 echo "testing a lot!" >> /mnt/testimage/test.txt
 echo "testing a lot!" >> /mnt/testimage/test.txt
 
 umount /mnt/testimage
+
+rbd device unmap $MAP_DEV
 
 rbd rm testpool/testimage
 

@@ -2,8 +2,8 @@
 set -e
 # set -x
 
-if [ "$CEPH_MONITOR_HOST" == "" ]; then
-    echo "CEPH_MONITOR_HOST is mandatory"
+if [ "$MONITOR_HOSTS" == "" ]; then
+    echo "MONITOR_HOSTS is mandatory"
     exit 1
 fi
 
