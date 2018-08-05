@@ -21,5 +21,5 @@ Set the following Environment variables:
 * RBD\_CACHE\_ENABLED 'true' - enable cache of writes and reads
 * RBD\_CACHE\_MAX\_DIRTY '0' - amount of bytes to write assyncronously before flushing to Ceph Cluster; 0 means just cache write through (reads are cached, but writes don't)
 
-See a complete example at /docker-compose.yml
+* Set HOST_IP on .env to your machine IP and run a complete example at /docker-compose.yml
 

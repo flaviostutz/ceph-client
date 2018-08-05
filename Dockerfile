@@ -1,7 +1,7 @@
 FROM flaviostutz/ceph-base
 
 RUN apt-get update
-RUN apt-get install -y xfsprogs kmod python-rados
+RUN apt-get install -y xfsprogs kmod
 
 ENV MONITOR_HOSTS ''
 ENV ETCD_URL ''
