@@ -18,8 +18,8 @@ Set the following Environment variables:
 * CEPH\_AUTH 'cephx'
 * CEPH\_USER 'admin'
 * CEPH\_CLUSTER\_NAME 'ceph'
-* RBD\_CACHE\_ENABLED 'true' - enable cache of writes and reads
-* RBD\_CACHE\_MAX\_DIRTY '0' - amount of bytes to write assyncronously before flushing to Ceph Cluster; 0 means just cache write through (reads are cached, but writes don't)
+<!-- * RBD\_CACHE\_ENABLED 'true' - enable cache of writes and reads
+* RBD\_CACHE\_MAX\_DIRTY '0' - amount of bytes to write assyncronously before flushing to Ceph Cluster; 0 means just cache write through (reads are cached, but writes don't) -->
 
 * Set HOST_IP on .env to your machine IP and run a complete example at /docker-compose.yml
 
