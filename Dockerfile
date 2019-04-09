@@ -1,4 +1,4 @@
-FROM flaviostutz/ceph-base:ubuntu-mimic-13.2.0.2
+FROM flaviostutz/ceph-base:ubuntu-mimic-13.2.0.3
 
 RUN apt-get update
 RUN apt-get install -y xfsprogs kmod
